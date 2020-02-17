@@ -24,6 +24,11 @@ ENV_NAMES = [
     "ninja",
     "plunder",
     "starpilot",
+    "dodgeball1",
+    "dodgeball2",
+    "dodgeball3",
+    "dodgeball4",
+    "dodgeball5",
 ]
 
 EXPLORATION_LEVEL_SEEDS = {

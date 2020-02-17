@@ -9,6 +9,12 @@ std::vector<std::shared_ptr<QImage>> platform_backgrounds;
 std::vector<std::shared_ptr<QImage>> space_backgrounds;
 std::vector<std::shared_ptr<QImage>> water_backgrounds;
 std::vector<std::shared_ptr<QImage>> water_surface_backgrounds;
+std::vector<std::shared_ptr<QImage>> topdown_background1;
+std::vector<std::shared_ptr<QImage>> topdown_background2;
+std::vector<std::shared_ptr<QImage>> topdown_background3;
+std::vector<std::shared_ptr<QImage>> topdown_background4;
+std::vector<std::shared_ptr<QImage>> topdown_background5;
+
 
 std::shared_ptr<QImage> load_resource_ptr(QString relpath, QImage::Format format) {
     auto path = global_resource_root + relpath;
@@ -29,6 +35,11 @@ void images_load() {
         {"topdown_simple_backgrounds", &topdown_simple_backgrounds},
         {"water_backgrounds", &water_backgrounds},
         {"water_surface_backgrounds", &water_surface_backgrounds},
+        {"topdown_background1", &topdown_background1},
+        {"topdown_background2", &topdown_background2},
+        {"topdown_background3", &topdown_background3},
+        {"topdown_background4", &topdown_background4},
+        {"topdown_background5", &topdown_background5},
     };
 
     auto group_to_paths = std::map<std::string, std::vector<std::string>>{
@@ -122,6 +133,36 @@ void images_load() {
             "topdown_simple_backgrounds",
             {
                 "topdown_backgrounds/floortiles.png",
+            },
+        },
+        {
+            "topdown_background1",
+            {
+                "topdown_backgrounds/backgrounddetailed1.png",
+            },
+        },
+        {
+            "topdown_background2",
+            {
+                "topdown_backgrounds/backgrounddetailed2.png",
+            },
+        },
+        {
+            "topdown_background3",
+            {
+                "topdown_backgrounds/backgrounddetailed3.png",
+            },
+        },
+        {
+            "topdown_background4",
+            {
+                "topdown_backgrounds/backgrounddetailed4.png",
+            },
+        },
+        {
+            "topdown_background5",
+            {
+                "topdown_backgrounds/backgrounddetailed5.png",
             },
         },
         {

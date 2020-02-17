@@ -73,6 +73,11 @@ add_library(env
   src/resources.cpp
   src/vecgame.cpp
   src/vecoptions.cpp
+  src/games/dodgeball1.cpp
+  src/games/dodgeball2.cpp
+  src/games/dodgeball3.cpp
+  src/games/dodgeball4.cpp
+  src/games/dodgeball5.cpp
 )
 
 target_link_libraries(env Qt5::Gui)
