@@ -30,7 +30,7 @@ You could only install this customized version of procgen via building from sour
 If you want to change the environments or create new ones, you should build from source.  You can get miniconda from https://docs.conda.io/en/latest/miniconda.html if you don't have it, or install the dependencies from [`environment.yml`](environment.yml) manually.  On Windows you will also need "Visual Studio 15 2017" installed.
 
 ```
-git clone git@github.com:openai/procgen.git
+git clone git@github.com:karlxing/procgen.git
 cd procgen
 conda env update --name procgen --file environment.yml
 conda activate procgen
