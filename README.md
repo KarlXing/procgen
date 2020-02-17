@@ -1,20 +1,10 @@
-**Status:** Maintenance (expect bug fixes and minor updates)
 
-# Procgen Benchmark
+# Customized Procgen Benchmark
 
-#### [[Blog Post]](https://openai.com/blog/procgen-benchmark/) [[Paper]](https://cdn.openai.com/procgen.pdf)
-
-16 simple-to-use procedurally-generated [gym](https://github.com/openai/gym) environments which provide a direct measure of how quickly a reinforcement learning agent learns generalizable skills.  The environments run at high speed (thousands of steps per second) on a single core.
+We created customized procgen benchmark to study the generalization across visual features. As in original procgen, there are 16 simple-to-use procedurally-generated [gym](https://github.com/openai/gym) environments which provide a direct measure of how quickly a reinforcement learning agent learns generalizable skills.  The environments run at high speed (thousands of steps per second) on a single core. For each environment, we customized additional environments based on the original implementation. In the customized environment, the theme for the background and objects is fixed. It helps us to study the generalization in visual features and game layouts separately.
 
 <img src="https://raw.githubusercontent.com/openai/procgen/master/screenshots/procgen.gif">
 
-These environments are associated with the paper [Leveraging Procedural Generation to Benchmark Reinforcement Learning](https://cdn.openai.com/procgen.pdf) [(citation)](#citation).  The code for running some experiments from the paper is in the [train-procgen](https://github.com/openai/train-procgen) repo.
-
-Compared to [Gym Retro](https://github.com/openai/retro), these environments are:
-
-* Faster: Gym Retro environments are already fast, but Procgen environments can run >4x faster.
-* Non-deterministic: Gym Retro environments are always the same, so you can memorize a sequence of actions that will get the highest reward.  Procgen environments are randomized so this is not possible.
-* Customizable: If you install from source, you can perform experiments where you change the environments, or build your own environments.  The environment-specific code for each environment is often less than 300 lines.  This is almost impossible with Gym Retro.
 
 Supported platforms:
 
@@ -34,56 +24,32 @@ Supported CPUs:
 
 ## Installation
 
-First make sure you have a supported version of python:
+You could only install this customized version of procgen via building from source since we added new games where the background theme is fixed. 
+
+
+If you want to change the environments or create new ones, you should build from source.  You can get miniconda from https://docs.conda.io/en/latest/miniconda.html if you don't have it, or install the dependencies from [`environment.yml`](environment.yml) manually.  On Windows you will also need "Visual Studio 15 2017" installed.
 
 ```
-# run these commands to check for the correct python version
-python -c "import sys; assert (3,6,0) <= sys.version_info <= (3,9,0), 'python is incorrect version'; print('ok')"
-python -c "import platform; assert platform.architecture()[0] == '64bit', 'python is not 64-bit'; print('ok')"
+git clone git@github.com:openai/procgen.git
+cd procgen
+conda env update --name procgen --file environment.yml
+conda activate procgen
+pip install -e .
+# this should say "building procgen...done"
+python -c "from procgen import ProcgenEnv; ProcgenEnv(num_envs=1, env_name='coinrun')"
+# this should create a window where you can play the coinrun environment
+python -m procgen.interactive
 ```
 
-To install the wheel:
+The environment code is in C++ and is compiled into a shared library loaded by python using a C interface based on [`libenv`](https://github.com/cshesse/libenv).  The C++ code uses [Qt](https://www.qt.io/) for drawing.
 
-```
-pip install procgen
-```
+## Customized Environments
+For now, we customized dodgeball game and added another five dodgeball environments which are dodgeball1, dodgeball2, dodgeball3, dodgeball4, dodgeball5.
 
-If you get an error like `"Could not find a version that satisfies the requirement procgen"`, please upgrade pip: `pip install --upgrade pip`.
+<img>
 
-To try an environment out interactively:
 
-```
-python -m procgen.interactive --env-name coinrun
-```
-
-The keys are: left/right/up/down + q, w, e, a, s, d for the different (environment-dependent) actions.  Your score is displayed as "episode_return" on the right.  At the end of an episode, you can see your final "episode_return" as well as "level_completed" which will be `1` if you successfully completed the level.
-
-To create an instance of the [gym](https://github.com/openai/gym) environment:
-
-```
-import gym
-env = gym.make("procgen:procgen-coinrun-v0")
-```
-
-To create an instance of the vectorized environment:
-
-```
-from procgen import ProcgenEnv
-venv = ProcgenEnv(num_envs=1, env_name="coinrun")
-```
-
-The environment uses the [`VecEnv`](https://github.com/openai/baselines/blob/master/baselines/common/vec_env/vec_env.py#L29) interface from [`baselines`](https://github.com/openai/baselines), `baselines` is not a dependency of this library.
-
-### Docker
-
-A [`Dockerfile`](docker/Dockerfile) is included to demonstrate a minimal Docker-based setup that works for running random agent.
-
-```
-docker build docker --tag procgen
-docker run --rm -it procgen python3 -m procgen.examples.random_agent
-```
-
-## Environments
+## Basic Environments
 
 The observation space is a box space with the RGB pixels the agent sees in a numpy array of shape (64, 64, 3).  The expected step rate for a human player is 15 Hz.
 
@@ -145,23 +111,6 @@ venv = ProcgenEnv(num_envs=1, env_name="coinrun", start_level=0, num_levels=1)
 * While the library should be thread safe, each individual environment instance should only be used from a single thread.  The library is not fork safe unless you set `num_threads=0`.  Even if you do that, `Qt` is not guaranteed to be fork safe, so you should probably create the environment after forking or not use fork at all.
 * Calling `reset()` early will not do anything, please re-create the environment if you want to reset it early.
 
-# Install from Source
-
-If you want to change the environments or create new ones, you should build from source.  You can get miniconda from https://docs.conda.io/en/latest/miniconda.html if you don't have it, or install the dependencies from [`environment.yml`](environment.yml) manually.  On Windows you will also need "Visual Studio 15 2017" installed.
-
-```
-git clone git@github.com:openai/procgen.git
-cd procgen
-conda env update --name procgen --file environment.yml
-conda activate procgen
-pip install -e .
-# this should say "building procgen...done"
-python -c "from procgen import ProcgenEnv; ProcgenEnv(num_envs=1, env_name='coinrun')"
-# this should create a window where you can play the coinrun environment
-python -m procgen.interactive
-```
-
-The environment code is in C++ and is compiled into a shared library loaded by python using a C interface based on [`libenv`](https://github.com/cshesse/libenv).  The C++ code uses [Qt](https://www.qt.io/) for drawing.
 
 # Create a new environment
 
@@ -174,17 +123,7 @@ Once you have installed from source, you can customize an existing environment o
 
 This repo includes a travis configuration that will compile your environment and build python wheels for easy installation.  In order to have this build more quickly by caching the Qt compilation, you will want to configure a GCS bucket in [common.py](https://github.com/openai/procgen/blob/master/procgen-build/procgen_build/common.py#L5) and [setup service account credentials](https://github.com/openai/procgen/blob/master/procgen-build/procgen_build/build_package.py#L41).
 
-# Changelog
 
-See [CHANGES](CHANGES.md) for changes present in each release.
-
-# Contributing
-
-See [CONTRIBUTING](CONTRIBUTING.md) for information on contributing.
-
-# Assets
-
-See [ASSET_LICENSES](ASSET_LICENSES.md) for asset license information.
 
 # Citation
 
