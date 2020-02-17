@@ -44,9 +44,11 @@ python -m procgen.interactive
 The environment code is in C++ and is compiled into a shared library loaded by python using a C interface based on [`libenv`](https://github.com/cshesse/libenv).  The C++ code uses [Qt](https://www.qt.io/) for drawing.
 
 ## Customized Environments
-For now, we customized dodgeball game and added another five dodgeball environments which are dodgeball1, dodgeball2, dodgeball3, dodgeball4, dodgeball5.
+For now, we customized dodgeball game and added another five dodgeball environments which are dodgeball1, dodgeball2, dodgeball3, dodgeball4, dodgeball5. They have different color settings for the background and objects. However, as long as setting the same level, they have the same environment layouts.
 
-<img>
+<img src="https://raw.githubusercontent.com/karlxing/procgen/master/screenshots/dodgeball_customized.png">
+
+
 
 
 ## Basic Environments
