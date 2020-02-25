@@ -78,6 +78,11 @@ add_library(env
   src/games/dodgeball3.cpp
   src/games/dodgeball4.cpp
   src/games/dodgeball5.cpp
+  src/games/coinrun1.cpp
+  src/games/coinrun2.cpp
+  src/games/coinrun3.cpp
+  src/games/coinrun4.cpp
+  src/games/coinrun5.cpp
 )
 
 target_link_libraries(env Qt5::Gui)

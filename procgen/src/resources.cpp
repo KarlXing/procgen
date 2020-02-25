@@ -14,6 +14,11 @@ std::vector<std::shared_ptr<QImage>> topdown_background2;
 std::vector<std::shared_ptr<QImage>> topdown_background3;
 std::vector<std::shared_ptr<QImage>> topdown_background4;
 std::vector<std::shared_ptr<QImage>> topdown_background5;
+std::vector<std::shared_ptr<QImage>> platform_backgrounds_air1;
+std::vector<std::shared_ptr<QImage>> platform_backgrounds_battle1;
+std::vector<std::shared_ptr<QImage>> platform_backgrounds_cave1;
+std::vector<std::shared_ptr<QImage>> platform_backgrounds_landscape1;
+std::vector<std::shared_ptr<QImage>> platform_backgrounds_cyberpunk1;
 
 
 std::shared_ptr<QImage> load_resource_ptr(QString relpath, QImage::Format format) {
@@ -40,6 +45,11 @@ void images_load() {
         {"topdown_background3", &topdown_background3},
         {"topdown_background4", &topdown_background4},
         {"topdown_background5", &topdown_background5},
+        {"platform_backgrounds_air1", &platform_backgrounds_air1},
+        {"platform_backgrounds_battle1", &platform_backgrounds_battle1},
+        {"platform_backgrounds_cave1", &platform_backgrounds_cave1},
+        {"platform_backgrounds_cyberpunk1", &platform_backgrounds_cyberpunk1},
+        {"platform_backgrounds_landscape1", &platform_backgrounds_landscape1},
     };
 
     auto group_to_paths = std::map<std::string, std::vector<std::string>>{
@@ -60,6 +70,41 @@ void images_load() {
                 "space_backgrounds/Background-4.png",
                 "space_backgrounds/parallax-space-backgound.png",
             },
+        },
+        {
+            "platform_backgrounds_air1",
+            {
+                "platform_backgrounds/airadventurelevel1.png",
+            },
+
+        },
+        {
+            "platform_backgrounds_battle1",
+            {
+                "platform_backgrounds/battleback1.png",
+            },
+
+        },
+        {
+            "platform_backgrounds_cyberpunk1",
+            {
+                "platform_backgrounds/cyberpunk_bg.png",
+            },
+
+        },
+        {
+            "platform_backgrounds_cave1",
+            {
+                "platform_backgrounds/cave_background.png",
+            },
+
+        },
+        {
+            "platform_backgrounds_landscape1",
+            {
+                "platform_backgrounds/landscape1.png",
+            },
+
         },
         {
             "platform_backgrounds",

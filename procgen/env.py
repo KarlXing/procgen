@@ -29,10 +29,20 @@ ENV_NAMES = [
     "dodgeball3",
     "dodgeball4",
     "dodgeball5",
+    'coinrun1',
+    'coinrun2',
+    'coinrun3',
+    'coinrun4',
+    'coinrun5',
 ]
 
 EXPLORATION_LEVEL_SEEDS = {
     "coinrun": 1949448038,
+    "coinrun1": 1949448038,
+    "coinrun2": 1949448038,
+    "coinrun3": 1949448038,
+    "coinrun4": 1949448038,
+    "coinrun5": 1949448038,
     "caveflyer": 1259048185,
     "leaper": 1318677581,
     "jumper": 1434825276,
