@@ -19,6 +19,11 @@ std::vector<std::shared_ptr<QImage>> platform_backgrounds_battle1;
 std::vector<std::shared_ptr<QImage>> platform_backgrounds_cave1;
 std::vector<std::shared_ptr<QImage>> platform_backgrounds_landscape1;
 std::vector<std::shared_ptr<QImage>> platform_backgrounds_cyberpunk1;
+std::vector<std::shared_ptr<QImage>> space_background1;
+std::vector<std::shared_ptr<QImage>> space_background2;
+std::vector<std::shared_ptr<QImage>> space_background3;
+std::vector<std::shared_ptr<QImage>> space_background4;
+std::vector<std::shared_ptr<QImage>> space_background5;
 
 
 std::shared_ptr<QImage> load_resource_ptr(QString relpath, QImage::Format format) {
@@ -50,6 +55,11 @@ void images_load() {
         {"platform_backgrounds_cave1", &platform_backgrounds_cave1},
         {"platform_backgrounds_cyberpunk1", &platform_backgrounds_cyberpunk1},
         {"platform_backgrounds_landscape1", &platform_backgrounds_landscape1},
+        {"space_background1", &space_background1},
+        {"space_background2", &space_background2},
+        {"space_background3", &space_background3},
+        {"space_background4", &space_background4},
+        {"space_background5", &space_background5},
     };
 
     auto group_to_paths = std::map<std::string, std::vector<std::string>>{
@@ -71,6 +81,41 @@ void images_load() {
                 "space_backgrounds/parallax-space-backgound.png",
             },
         },
+        {
+            "space_background1",
+            {
+                "space_backgrounds/deep_sky_01.png",
+
+            }
+        },
+        {
+            "space_background2",
+            {
+                "space_backgrounds/space_nebula_01.png",
+
+            }
+        },
+        {
+            "space_background3",
+            {
+                "space_backgrounds/deep_space_01.png",
+
+            }
+        },
+        {
+            "space_background4",
+            {
+                "space_backgrounds/Background-4.png",
+
+            }
+        },
+        {
+            "space_background5",
+            {
+                "space_backgrounds/milky_way_01.png",
+
+            }
+        },        
         {
             "platform_backgrounds_air1",
             {

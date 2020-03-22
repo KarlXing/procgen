@@ -83,6 +83,11 @@ add_library(env
   src/games/coinrun3.cpp
   src/games/coinrun4.cpp
   src/games/coinrun5.cpp
+  src/games/bossfight1.cpp
+  src/games/bossfight2.cpp
+  src/games/bossfight3.cpp
+  src/games/bossfight4.cpp
+  src/games/bossfight5.cpp
 )
 
 target_link_libraries(env Qt5::Gui)

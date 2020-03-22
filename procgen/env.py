@@ -34,6 +34,11 @@ ENV_NAMES = [
     'coinrun3',
     'coinrun4',
     'coinrun5',
+    'bossfight1',
+    'bossfight2',
+    'bossfight3',
+    'bossfight4',
+    'bossfight5',
 ]
 
 EXPLORATION_LEVEL_SEEDS = {
