@@ -88,6 +88,11 @@ add_library(env
   src/games/bossfight3.cpp
   src/games/bossfight4.cpp
   src/games/bossfight5.cpp
+  src/games/starpilot1.cpp
+  src/games/starpilot2.cpp
+  src/games/starpilot3.cpp
+  src/games/starpilot4.cpp
+  src/games/starpilot5.cpp
 )
 
 target_link_libraries(env Qt5::Gui)

@@ -39,6 +39,11 @@ ENV_NAMES = [
     'bossfight3',
     'bossfight4',
     'bossfight5',
+    'starpilot1',
+    'starpilot2',
+    'starpilot3',
+    'starpilot4',
+    'starpilot5',
 ]
 
 EXPLORATION_LEVEL_SEEDS = {
