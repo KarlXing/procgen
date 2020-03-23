@@ -65,7 +65,7 @@ class StarPilotGame5 : public BasicAbstractGame {
         } else if (type == BULLET3) {
             names.push_back("misc_assets/towerDefense_tile297.png");
         } else if (type == FLYER || type == FAST_FLYER) {
-            names.push_back("misc_assets/spaceShips_005");
+            names.push_back("misc_assets/shipPink.png");
         } else if (type == METEOR) {
             names.push_back("misc_assets/spaceMeteors_003");
         } else if (type == CLOUD) {

@@ -57,7 +57,7 @@ class StarPilotGame3 : public BasicAbstractGame {
 
     void asset_for_type(int type, std::vector<QString> &names) override {
         if (type == PLAYER) {
-            names.push_back("misc_assets/playerShip2_blue.png");
+            names.push_back("misc_assets/playerShip1_orange.png");
         } else if (type == BULLET_PLAYER) {
             names.push_back("misc_assets/towerDefense_tile295.png");
         } else if (type == BULLET2) {
@@ -65,7 +65,7 @@ class StarPilotGame3 : public BasicAbstractGame {
         } else if (type == BULLET3) {
             names.push_back("misc_assets/towerDefense_tile297.png");
         } else if (type == FLYER || type == FAST_FLYER) {
-            names.push_back("misc_assets/spaceShips_003");
+            names.push_back("misc_assets/shipGreen.png");
         } else if (type == METEOR) {
             names.push_back("misc_assets/spaceMeteors_002");
         } else if (type == CLOUD) {
