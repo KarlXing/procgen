@@ -105,7 +105,7 @@ void images_load() {
         {
             "space_background4",
             {
-                "space_backgrounds/Background-4.png",
+                "space_backgrounds/spacegen_01.png.png",
 
             }
         },
