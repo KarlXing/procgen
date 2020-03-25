@@ -84,21 +84,21 @@ void images_load() {
         {
             "space_background1",
             {
-                "space_backgrounds/deep_sky_01.png",
+                "space_backgrounds/Background-1.png",
 
             }
         },
         {
             "space_background2",
             {
-                "space_backgrounds/space_nebula_01.png",
+                "space_backgrounds/Background-2.png",
 
             }
         },
         {
             "space_background3",
             {
-                "space_backgrounds/deep_space_01.png",
+                "space_backgrounds/Background-3.png",
 
             }
         },
