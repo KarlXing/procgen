@@ -84,35 +84,35 @@ void images_load() {
         {
             "space_background1",
             {
-                "space_backgrounds/black.png",
+                "space_backgrounds/b3.png",
 
             }
         },
         {
             "space_background2",
             {
-                "space_backgrounds/black.png",
+                "space_backgrounds/b2.png",
 
             }
         },
         {
             "space_background3",
             {
-                "space_backgrounds/black.png",
+                "space_backgrounds/b1.png",
 
             }
         },
         {
             "space_background4",
             {
-                "space_backgrounds/black.png",
+                "space_backgrounds/b4.png",
 
             }
         },
         {
             "space_background5",
             {
-                "space_backgrounds/black.png",
+                "space_backgrounds/b5.png",
 
             }
         },        
